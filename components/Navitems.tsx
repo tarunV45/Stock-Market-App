@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Nav_Items } from "@/lib/constants";
+import { NAV_ITEMS } from "@/lib/constants";
 import { usePathname } from "next/navigation";
 const Navitems = () => {
   const pathname: string = usePathname();
@@ -13,7 +13,7 @@ const Navitems = () => {
 
   return (
     <ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-      {Nav_Items.map(({ href, title }) => (
+      {NAV_ITEMS.map(({ href, label }) => (
         <li key={href}>
           <Link
             href={href}
@@ -22,7 +22,7 @@ const Navitems = () => {
                 ? "text-gray-100"
                 : ""
             }`}
-          >{title}</Link>
+          >{label}</Link>
         </li>
       ))}
     </ul>
