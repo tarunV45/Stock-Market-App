@@ -18,18 +18,20 @@ import {
 } from "@/components/ui/avatar";
 import { LogOut } from "lucide-react";
 import Navitems from "./Navitems";
+import { signOut } from "@/lib/actions/auth.actions";
 
-const UserDropdown = () => {
+const UserDropdown = ({user}: {user: User}) => {
   const router: AppRouterInstance = useRouter();
 
-  const handleSignout = () => {
+  const handleSignout = async () => {
+    await signOut();
     router.push("/sign-in");
   };
 
-  const user = {
-    name: "Tarun Venkatesh",
-    email: "support@cloud.com",
-  };
+  // const user = {
+  //   name: "Tarun Venkatesh",
+  //   email: "support@cloud.com",
+  // };
 
   return (
     <DropdownMenu>
